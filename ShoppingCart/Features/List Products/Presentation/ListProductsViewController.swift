@@ -36,7 +36,7 @@ extension ListProductsViewController: UITableViewDelegate {
     
 }
 
-// MARK: - UITable
+// MARK: - UITableViewDataSource Methods.
 
 extension ListProductsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,7 +47,9 @@ extension ListProductsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "listProductTableCell", for: indexPath) as? ListProductTableCell else { return ListProductTableCell() }
         let product = listProductsViewModel.productsList[indexPath.row]
         
-        cell.configureCell(productName: product.productName)
+        cell.configureCell(product: product) { selectedProduct in
+            self.listProductsViewModel.addToCart(product: selectedProduct)
+        }
         return cell
     }
 }

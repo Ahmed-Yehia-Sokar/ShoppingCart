@@ -12,9 +12,25 @@ class ListProductTableCell: UITableViewCell {
     
     @IBOutlet weak var productNameLabel: UILabel!
     
+    // MARK: - Properties.
+    
+    private var product: Product?
+    private var onAddToCartButtonTappedHandler: ((Product) -> Void)?
+    
     // MARK: - Methods.
     
-    func configureCell(productName: String) {
-        self.productNameLabel.text = productName
+    func configureCell(product: Product,
+                       onAddToCartButtonTappedHandler: @escaping ((Product) -> Void)) {
+        self.product = product
+        self.onAddToCartButtonTappedHandler = onAddToCartButtonTappedHandler
+        self.productNameLabel.text = product.productName
+    }
+    
+    // MARK: - IBActions.
+    
+    @IBAction func onAddToCartButtonTapped(_ sender: UIButton) {
+        if let product = product {
+            onAddToCartButtonTappedHandler?(product)
+        }
     }
 }

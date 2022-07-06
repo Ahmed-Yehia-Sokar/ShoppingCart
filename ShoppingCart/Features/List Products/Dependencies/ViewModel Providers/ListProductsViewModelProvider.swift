@@ -12,7 +12,9 @@ class ListProductsViewModelProvider {
     
     static func getListProductsViewModel() -> ListProductsViewModel {
         let listProductsUsecase = ListProductsUsecaseProvider.getListProductsUsecase()
+        let addToCartUsecase = AddToCartUsecaseProvider.getAddToCartUsecase()
         
-        return ListProductsViewModel(listProductsUsecase: listProductsUsecase)
+        return ListProductsViewModel(listProductsUsecase: listProductsUsecase,
+                                     addToCartUsecase: addToCartUsecase)
     }
 }

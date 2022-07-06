@@ -33,10 +33,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vki-Jk-1BV">
+                                                    <rect key="frame" x="305" y="14.5" width="101" height="31"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Add To Cart"/>
+                                                    <connections>
+                                                        <action selector="onAddToCartButtonTapped:" destination="5XM-vF-g0o" eventType="touchUpInside" id="1kp-vh-cjI"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="vki-Jk-1BV" secondAttribute="trailing" constant="8" id="49q-Bz-o6d"/>
                                                 <constraint firstItem="Luz-1o-aQw" firstAttribute="leading" secondItem="yWi-GZ-cfU" secondAttribute="leadingMargin" id="637-jo-9Vo"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Luz-1o-aQw" secondAttribute="bottom" constant="8" id="9Ao-G8-gv5"/>
+                                                <constraint firstItem="vki-Jk-1BV" firstAttribute="centerY" secondItem="yWi-GZ-cfU" secondAttribute="centerY" id="gkN-Zh-bME"/>
                                                 <constraint firstItem="Luz-1o-aQw" firstAttribute="top" secondItem="yWi-GZ-cfU" secondAttribute="topMargin" constant="8" id="xax-2K-gdz"/>
                                             </constraints>
                                         </tableViewCellContentView>
