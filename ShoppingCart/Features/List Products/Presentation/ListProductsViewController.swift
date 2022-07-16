@@ -21,19 +21,22 @@ class ListProductsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         listProductsViewModel.getProductsListCompletionHandler = {
             self.tableView.reloadData()
         }
         
         listProductsViewModel.getProductsList()
     }
-}
-
-// MARK: - UITableViewDelegate Methods.
-
-extension ListProductsViewController: UITableViewDelegate {
     
+    // MARK: - IBActions.
+    
+    @IBAction func onShowCartButtonTapped(_ sender: UIButton) {
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "ListPurchasedProductsViewController")
+        if let listPurchasedProductsViewController = viewController as? ListPurchasedProductsViewController {
+            present(listPurchasedProductsViewController, animated: true, completion: nil)
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource Methods.
@@ -45,10 +48,10 @@ extension ListProductsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "listProductTableCell", for: indexPath) as? ListProductTableCell else { return ListProductTableCell() }
-        let product = listProductsViewModel.productsList[indexPath.row]
+        let productName = listProductsViewModel.productsList[indexPath.row]
         
-        cell.configureCell(product: product) { selectedProduct in
-            self.listProductsViewModel.addToCart(product: selectedProduct)
+        cell.configureCell(productName: productName) { selectedProduct in
+            self.listProductsViewModel.addToCart(productName: selectedProduct)
         }
         return cell
     }

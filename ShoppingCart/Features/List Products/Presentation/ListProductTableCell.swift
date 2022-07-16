@@ -14,23 +14,23 @@ class ListProductTableCell: UITableViewCell {
     
     // MARK: - Properties.
     
-    private var product: Product?
-    private var onAddToCartButtonTappedHandler: ((Product) -> Void)?
+    private var productName: String?
+    private var onAddToCartButtonTappedHandler: ((String) -> Void)?
     
     // MARK: - Methods.
     
-    func configureCell(product: Product,
-                       onAddToCartButtonTappedHandler: @escaping ((Product) -> Void)) {
-        self.product = product
+    func configureCell(productName: String,
+                       onAddToCartButtonTappedHandler: @escaping ((String) -> Void)) {
+        self.productName = productName
         self.onAddToCartButtonTappedHandler = onAddToCartButtonTappedHandler
-        self.productNameLabel.text = product.productName
+        self.productNameLabel.text = productName
     }
     
     // MARK: - IBActions.
     
     @IBAction func onAddToCartButtonTapped(_ sender: UIButton) {
-        if let product = product {
-            onAddToCartButtonTappedHandler?(product)
+        if let productName = productName {
+            onAddToCartButtonTappedHandler?(productName)
         }
     }
 }

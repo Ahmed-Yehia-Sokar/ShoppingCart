@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ProductsRepositoryContract {
-    func getProductsList() -> [Product];
+    func getProductsList() -> [String];
 }

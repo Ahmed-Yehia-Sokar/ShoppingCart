@@ -18,7 +18,7 @@ class ListProductsUsecase {
         self.productsRepository = productsRepository
     }
     
-    func getProductsList() -> [Product] {
+    func getProductsList() -> [String] {
         productsRepository.getProductsList()
     }
 }

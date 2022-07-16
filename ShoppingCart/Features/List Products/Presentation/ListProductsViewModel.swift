@@ -12,7 +12,7 @@ class ListProductsViewModel {
     
     private let listProductsUsecase: ListProductsUsecase
     private let addToCartUsecase: AddToCartUsecase
-    var productsList = [Product]()
+    var productsList = [String]()
     var getProductsListCompletionHandler: (() -> Void)?
     
     // MARK: - Methods.
@@ -28,7 +28,7 @@ class ListProductsViewModel {
         getProductsListCompletionHandler?()
     }
     
-    func addToCart(product: Product) {
-        addToCartUsecase.addToCart(product: product)
+    func addToCart(productName: String) {
+        addToCartUsecase.addToCart(productName: productName)
     }
 }

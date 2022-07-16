@@ -8,5 +8,10 @@
 import Foundation
 
 protocol CartRepositoryContract {
-    func addToCart(product: Product);
+    func setCartExpiryDate(date: Date);
+    func getCartExpiryDate() -> Date;
+    func removeCartExpiryDate();
+    func getPurchasedProductsList() -> [String: Int];
+    func addToCart(productName: String);
+    func emptyCart();
 }
